@@ -9,19 +9,9 @@
 #include <vector>
 
 //定数の宣言
-const int WINDOW_SIZE_HEIGHT = SCREEN_SIZE * SCREEN_HEIGHT_ASPECT;	//画面サイズ縦
-const int WINDOW_SIZE_WIDTH = SCREEN_SIZE * SCREEN_WIDTH_ASPECT;		//画面サイズ横
-const int SCREEN_HEIGHT = WINDOW_SIZE_HEIGHT;									//ゲーム画面サイズ縦
-const int SCREEN_WIDTH = WINDOW_SIZE_WIDTH / 3 * 2;								//ゲーム画面サイズ横
+
 const int WINDOW_HEIGHT = 600;															//ウィンドウサイズ縦
 const int WINDOW_WIDTH = 800;																//ウィンドウサイズ横
-const int SCREEN_OVER_LEFT = -100;														//画面外定義
-const int SCREEN_OVER_RIGHT = SCREEN_WIDTH + 100;								//画面外定義
-const int SCREEN_OVER_UP = - 100;														//画面外定義
-const int SCREEN_OVER_DOWN = SCREEN_HEIGHT + 100;								//画面外定義
-const int maxdot = 1;																			//出現させるドットの最大数
-const int MAX_DROP_SPEED = 20;															//落下速度最大値
-const double PLAYER_SPEED = 5;															//プレイヤーの速さ
 
 //列挙体の宣言
 enum GAME_MODE

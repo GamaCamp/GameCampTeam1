@@ -114,6 +114,7 @@
     <ClInclude Include="SingletonClass.h" />
     <ClInclude Include="system.h" />
     <ClInclude Include="TimerClass.h" />
+    <ClInclude Include="Title.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
