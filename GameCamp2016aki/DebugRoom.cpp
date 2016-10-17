@@ -4,6 +4,7 @@
 
 void DebugInit()
 {
+	int a = 700;
 }
 
 void DebugView()
