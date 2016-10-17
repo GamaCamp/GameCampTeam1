@@ -8,7 +8,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpCmdLine
 {
 	SetMainWindowText( "Laboratory" );//タイトル
 	
-	SetGraphMode(WINDOW_SIZE_WIDTH , WINDOW_SIZE_HEIGHT , 16);
+	SetGraphMode(WINDOW_WIDTH , WINDOW_HEIGHT , 16);
 
 	ChangeWindowMode(TRUE);//ウィンドウモードで起動
 
