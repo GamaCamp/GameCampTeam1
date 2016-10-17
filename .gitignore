@@ -19,6 +19,10 @@ build/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+# User Define
+DebugRoom.h
+DebugRoom.cpp
+
 *_i.c
 *_p.c
 *.ilk
