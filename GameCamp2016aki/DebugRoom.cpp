@@ -6,7 +6,7 @@ SceneManagerClass *manag = SingletonClass<SceneManagerClass>::GetInstance();
 
 void DebugInit()
 {
-	int a = 100;
+	int a = 500;
 }
 
 void DebugView()
