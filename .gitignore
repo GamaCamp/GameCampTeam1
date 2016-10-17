@@ -20,8 +20,8 @@ build/
 [Bb]uild[Ll]og.*
 
 # User Define
-DebugRoom.h
-DebugRoom.cpp
+GameCamp2016aki/DebugRoom.h
+GameCamp2016aki/DebugRoom.cpp
 
 *_i.c
 *_p.c
