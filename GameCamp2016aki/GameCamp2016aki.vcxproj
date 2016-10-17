@@ -89,31 +89,35 @@
     <ClCompile Include="BaseObjectClass.cpp" />
     <ClCompile Include="BoxClass.cpp" />
     <ClCompile Include="CircleClass.cpp" />
-    <ClCompile Include="youDebugRoom.cpp" />
     <ClCompile Include="GraphicClass.cpp" />
     <ClCompile Include="GroundClass.cpp" />
+    <ClCompile Include="JashikiDebugRoom.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PhysicsClass.cpp" />
     <ClCompile Include="SceneClass.cpp" />
     <ClCompile Include="SceneManagerClass.cpp" />
     <ClCompile Include="system.cpp" />
     <ClCompile Include="TimerClass.cpp" />
+    <ClCompile Include="Title.cpp" />
+    <ClCompile Include="youDebugRoom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseObjectClass.h" />
     <ClInclude Include="BoxClass.h" />
     <ClInclude Include="CircleClass.h" />
     <ClInclude Include="common.h" />
-    <ClInclude Include="youDebugRoom.h" />
     <ClInclude Include="DebugSwitch.h" />
     <ClInclude Include="GraphicClass.h" />
     <ClInclude Include="GroundClass.h" />
+    <ClInclude Include="JashikiDebugRoom.h" />
     <ClInclude Include="PhysicsClass.h" />
     <ClInclude Include="SceneClass.h" />
     <ClInclude Include="SceneManagerClass.h" />
     <ClInclude Include="SingletonClass.h" />
     <ClInclude Include="system.h" />
     <ClInclude Include="TimerClass.h" />
+    <ClInclude Include="Title.h" />
+    <ClInclude Include="youDebugRoom.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

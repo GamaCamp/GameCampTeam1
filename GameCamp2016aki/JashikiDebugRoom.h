@@ -1,0 +1,2 @@
+void DebugInitJ();
+void DebugViewJ();
