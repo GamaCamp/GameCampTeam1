@@ -34,6 +34,8 @@ void SceneManagerClass::ChangeScene(_SCENE scene)
 		m_Scene = &SceneMain;
 		break;
 	}
+	
+	m_Scene->Initialize();
 
 }
 

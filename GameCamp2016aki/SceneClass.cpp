@@ -20,6 +20,11 @@ BaseSceneClass::~BaseSceneClass(void)
 //public関数
 //////////////////////////////////////////////////////////////////////////////
 
+bool BaseSceneClass::Initialize()
+{
+	return true;
+}
+
 bool BaseSceneClass::Update()
 {
 	return true;
@@ -46,6 +51,10 @@ SceneTitleClass::~SceneTitleClass()
 //////////////////////////////////////////////////////////////////////////////
 //public関数
 //////////////////////////////////////////////////////////////////////////////
+bool SceneTitleClass::Initialize()
+{
+	return true;
+}
 
 bool SceneTitleClass::Update()
 {
@@ -67,6 +76,7 @@ void SceneTitleClass::Render()
 //コンストラクタ
 SceneMainClass::SceneMainClass ()
 {
+	m_SowBugManager = SingletonClass<SowBugManagerClass>::GetInstance();
 }
 
 //デストラクタ
@@ -78,12 +88,19 @@ SceneMainClass::~SceneMainClass ()
 //public関数
 //////////////////////////////////////////////////////////////////////////////
 
+bool SceneMainClass::Initialize()
+{
+	m_SowBugManager->Initialize();
+	return true;
+}
+
 //////////////////////////////////////////////////////////////////////////////
 //概略:
 //	メインシーンを更新する
 //////////////////////////////////////////////////////////////////////////////
 bool SceneMainClass::Update()
 {
+	m_SowBugManager->Update();
 	return true;
 }
 
@@ -93,4 +110,5 @@ bool SceneMainClass::Update()
 //////////////////////////////////////////////////////////////////////////////
 void SceneMainClass::Render()
 {
+	m_SowBugManager->Render();
 }

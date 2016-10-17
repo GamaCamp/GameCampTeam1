@@ -10,8 +10,8 @@
 
 //定数の宣言
 
-const int WINDOW_HEIGHT = 600;															//ウィンドウサイズ縦
-const int WINDOW_WIDTH = 800;																//ウィンドウサイズ横
+const int WINDOW_HEIGHT = 720;															//ウィンドウサイズ縦
+const int WINDOW_WIDTH = 960;																//ウィンドウサイズ横
 
 //列挙体の宣言
 enum GAME_MODE

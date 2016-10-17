@@ -1,4 +1,7 @@
 #pragma once
+#include "common.h"
+#include "SowBugManagerClass.h"
+
 class BaseSceneClass
 {
 public:
@@ -9,7 +12,8 @@ public:
 
 	//メンバ関数
 
-	virtual bool Update() = 0;
+	virtual bool Initialize() = 0;	//シーンの初期化
+	virtual bool Update() = 0;	//シーンの更新
 	virtual void Render() = 0;	//シーンの描画
 };
 
@@ -22,6 +26,7 @@ public:
 	//デストラクタ
 	~SceneTitleClass();
 	
+	bool Initialize();
 	bool Update();
 	void Render();	//シーンの描画
 };
@@ -30,7 +35,7 @@ class SceneMainClass :
 	public BaseSceneClass
 {
 private:
-
+	SowBugManagerClass *m_SowBugManager;
 
 public:
 	//コンストラクタ
@@ -38,6 +43,7 @@ public:
 	//デストラクタ
 	~SceneMainClass ();
 
+	bool Initialize();
 	bool Update();
 	void Render();	//シーンの描画
 };
