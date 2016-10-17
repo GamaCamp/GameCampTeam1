@@ -29,6 +29,9 @@ public:
 class SceneMainClass :
 	public BaseSceneClass
 {
+private:
+
+
 public:
 	//コンストラクタ
 	SceneMainClass ();

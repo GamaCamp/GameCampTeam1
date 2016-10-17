@@ -2,9 +2,11 @@
 #include "GroundClass.h"
 #include "SceneManagerClass.h"
 
+SceneManagerClass* TestScene = SingletonClass<SceneManagerClass>::GetInstance();
+
 void DebugInit()
 {
-	int a = 700;
+	SceneManagerClass::ChangeScene(SceneManagerClass::E_GAME_MAIN);
 }
 
 void DebugView()

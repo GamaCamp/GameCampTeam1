@@ -41,3 +41,9 @@ void SceneManagerClass::Render()
 {
 	m_Scene->Render();
 }
+
+bool SceneManagerClass::Update()
+{
+	m_Scene->Update();
+	return true;
+}

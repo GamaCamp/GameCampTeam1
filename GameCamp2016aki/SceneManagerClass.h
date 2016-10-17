@@ -25,5 +25,6 @@ public:
 
 	static void ChangeScene(_SCENE scene);	//シーンの遷移
 	static void Render();	//シーンの描画
+	static bool Update(); //シーンの更新
 };
 

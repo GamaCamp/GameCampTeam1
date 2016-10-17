@@ -96,6 +96,8 @@
     <ClCompile Include="PhysicsClass.cpp" />
     <ClCompile Include="SceneClass.cpp" />
     <ClCompile Include="SceneManagerClass.cpp" />
+    <ClCompile Include="SowBugClass.cpp" />
+    <ClCompile Include="SowBugManagerClass.cpp" />
     <ClCompile Include="system.cpp" />
     <ClCompile Include="TimerClass.cpp" />
     <ClCompile Include="Title.cpp" />
@@ -110,10 +112,13 @@
     <ClInclude Include="GraphicClass.h" />
     <ClInclude Include="GroundClass.h" />
     <ClInclude Include="JashikiDebugRoom.h" />
+    <ClInclude Include="ListClass.h" />
     <ClInclude Include="PhysicsClass.h" />
     <ClInclude Include="SceneClass.h" />
     <ClInclude Include="SceneManagerClass.h" />
     <ClInclude Include="SingletonClass.h" />
+    <ClInclude Include="SowBugClass.h" />
+    <ClInclude Include="SowBugManagerClass.h" />
     <ClInclude Include="system.h" />
     <ClInclude Include="TimerClass.h" />
     <ClInclude Include="Title.h" />
