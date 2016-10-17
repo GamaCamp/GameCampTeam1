@@ -1,9 +1,10 @@
-#include "DebugRoom.h"
+#include "youDebugRoom.h"
 #include "GroundClass.h"
 #include "SceneManagerClass.h"
 
 void DebugInit()
 {
+	int a = 700;
 }
 
 void DebugView()

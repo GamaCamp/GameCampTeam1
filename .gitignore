@@ -19,10 +19,6 @@ build/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
-# User Define
-GameCamp2016aki/DebugRoom.h
-GameCamp2016aki/DebugRoom.cpp
-
 *_i.c
 *_p.c
 *.ilk
