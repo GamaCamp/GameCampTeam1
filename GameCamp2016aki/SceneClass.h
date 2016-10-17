@@ -9,6 +9,7 @@ public:
 
 	//メンバ関数
 
+	virtual bool Update() = 0;
 	virtual void Render() = 0;	//シーンの描画
 };
 
@@ -21,6 +22,7 @@ public:
 	//デストラクタ
 	~SceneTitleClass();
 	
+	bool Update();
 	void Render();	//シーンの描画
 };
 
@@ -33,5 +35,6 @@ public:
 	//デストラクタ
 	~SceneMainClass ();
 
+	bool Update();
 	void Render();	//シーンの描画
 };
