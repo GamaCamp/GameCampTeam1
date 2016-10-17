@@ -1,5 +1,5 @@
 #include "common.h"
-#include "DebugRoom.h"
+#include "youDebugRoom.h"
 
 //•Ï”‚ÌÀ‘Ì‰»
 GAME_MODE GameMode = GAME_INIT;

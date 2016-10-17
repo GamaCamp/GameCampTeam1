@@ -19,9 +19,6 @@ build/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
-# User Define
-DebugRoom
-
 *_i.c
 *_p.c
 *.ilk
