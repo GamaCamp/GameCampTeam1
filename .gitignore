@@ -42,6 +42,7 @@ build/
 *.pidb
 *.log
 *.scc
+/GameCamp2016aki/Log.txt
 
 # Visual C++ cache files
 ipch/
