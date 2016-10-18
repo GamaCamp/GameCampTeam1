@@ -16,15 +16,19 @@ private:
 	PlayerClass m_Player;
 	bool m_ChangeFlag;
 	POSITION m_SowBugPosition[3];
+	POSITION m_ClickPosition;
+	POSITION m_DragPosition;
+	int m_MouseState;
 
 	void RotateSowBug();
+	void WantThrow();
 
 public:
 	PlayerManagerClass(void);
 	~PlayerManagerClass(void);
 
 	bool Initialize();
-	bool Update();
+	bool Update(MapManagerClass *map_manager , SowBugManagerClass *sow_bug_manager);
 	void Render();
 };
 

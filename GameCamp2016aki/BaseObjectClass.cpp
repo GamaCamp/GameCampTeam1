@@ -38,7 +38,17 @@ void BaseObjectClass::MoveObject()
 void BaseObjectClass::MoveObject(bool& grounded_flag)
 {
 	GetGravity();
-	m_Position.m_Vector += m_Velocity.m_Vector + m_GravityVelocity;
+	if((m_Velocity.m_Vector + m_GravityVelocity).y > MaxGravity)
+	{
+		VELOCITY TempVelocity;
+		TempVelocity.m_Vector = m_Velocity.m_Vector + m_GravityVelocity;
+		TempVelocity.m_Vector.y = MaxGravity;
+		m_Position.m_Vector += TempVelocity.m_Vector;
+	}
+	else
+	{
+		m_Position.m_Vector += m_Velocity.m_Vector + m_GravityVelocity;
+	}
 }
 //////////////////////////////////////////////////////////////////////////////
 //ŠT—ª:
@@ -58,10 +68,18 @@ POSITION BaseObjectClass::EstimatePosition(bool grounded_flag)
 	else
 	{
 		NextGravity.y = m_GravityAccelaration * (m_GravityTime.GetCounter() + 1);
-		if(NextGravity.y > MaxGravity) NextGravity.y = MaxGravity;
 	}
-
-	NextPosition.m_Vector = m_Position.m_Vector + NextVelocity.m_Vector + NextGravity;
+	if((NextVelocity.m_Vector + NextGravity).y > MaxGravity)
+	{
+		VELOCITY TempVelocity;
+		TempVelocity.m_Vector = NextVelocity.m_Vector + NextGravity;
+		TempVelocity.m_Vector.y = MaxGravity;
+		NextPosition.m_Vector = m_Position.m_Vector + TempVelocity.m_Vector;
+	}
+	else
+	{
+		NextPosition.m_Vector = m_Position.m_Vector + NextVelocity.m_Vector + NextGravity;
+	}
 
 	return NextPosition;
 }

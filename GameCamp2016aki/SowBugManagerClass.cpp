@@ -14,7 +14,7 @@ SowBugManagerClass::~SowBugManagerClass(void)
 //publicä÷êî
 //////////////////////////////////////////////////////////////////////////////
 
-bool SowBugManagerClass::CreateSowBug(SowBugManagerClass::SOW_BUG_TYPE sow_bug_type , POSITION* position , VELOCITY* velocity)
+bool SowBugManagerClass::CreateSowBug(SowBugManagerClass::SOW_BUG_TYPE sow_bug_type , POSITION* position , THREE_DIMENSION_VECTOR* velocity)
 {
 	switch (sow_bug_type)
 	{
@@ -26,6 +26,17 @@ bool SowBugManagerClass::CreateSowBug(SowBugManagerClass::SOW_BUG_TYPE sow_bug_t
 	}
 
 	return true;
+}
+
+void SowBugManagerClass::EstimateOrbit(MapManagerClass *map_manager , SowBugManagerClass::SOW_BUG_TYPE sow_bug_type , POSITION* position , THREE_DIMENSION_VECTOR* velocity)
+{
+	m_DummyBug.Initialize(sow_bug_type , position , velocity);
+
+	for(int i = 0 ; i < 100 ; i++)
+	{
+		m_DummyBug.Update(map_manager);
+		DrawCircle(m_DummyBug.GetPosition().m_Vector.x , m_DummyBug.GetPosition().m_Vector.y , 2 , 0xffffff);
+	}
 }
 
 bool SowBugManagerClass::Initialize()

@@ -20,7 +20,10 @@ public:
 	enum _SCENE
 	{
 		E_GAME_TITLE,	//タイトルシーン
+		E_GAME_HELP,	//ヘルプシーン
 		E_GAME_MAIN,	//メインシーン
+		E_GAME_CLEAR,	//クリアシーン
+		E_GAME_OVER,	//ゲームオーバーシーン
 	};
 
 	static void ChangeScene(_SCENE scene);	//シーンの遷移

@@ -54,7 +54,6 @@ void PhysicsClass::GetGravity()
 	else
 	{
 		m_GravityVelocity.y = m_GravityAccelaration * m_GravityTime.GetCounter();
-		if(m_GravityVelocity.y > MaxGravity) m_GravityVelocity.y = MaxGravity;
 	}
 
 	m_GravityTime.TimeCount();

@@ -27,7 +27,7 @@ SowBugStatePatternClass::~SowBugStatePatternClass()
 //概略:
 //	データロード（純粋仮想関数）
 //////////////////////////////////////////////////////////////////////////////
-bool SowBugStatePatternClass::LoadSowBugData(POSITION* position , VELOCITY* velocity)
+bool SowBugStatePatternClass::LoadSowBugData(POSITION* position , THREE_DIMENSION_VECTOR* velocity)
 {
 	return true;
 }
@@ -44,7 +44,7 @@ void SowBugStatePatternClass::CheckHitMap(MapManagerClass *map_manager)
 //概略:
 //	初期化（純粋仮想関数）
 //////////////////////////////////////////////////////////////////////////////
-bool SowBugStatePatternClass::Initialize(POSITION* position , VELOCITY* velocity)
+bool SowBugStatePatternClass::Initialize(POSITION* position , THREE_DIMENSION_VECTOR* velocity)
 {
 	return true;
 }
@@ -84,7 +84,7 @@ NormalSowBugClass::~NormalSowBugClass()
 //private関数
 //////////////////////////////////////////////////////////////////////////////
 
-bool NormalSowBugClass::LoadSowBugData(POSITION* position , VELOCITY* velocity)
+bool NormalSowBugClass::LoadSowBugData(POSITION* position , THREE_DIMENSION_VECTOR* velocity)
 {
 	std::ifstream ifs("data/sow_bug/normal_sow_bug.csv");
 	if(ifs.fail()) return false;
@@ -104,7 +104,9 @@ bool NormalSowBugClass::LoadSowBugData(POSITION* position , VELOCITY* velocity)
 		TempVector.push_back(std::stod(token));
 	}
 
-	CircleClass::Initialize(position , velocity , &ACCELARATION() , TempVector[0]);
+	VELOCITY TempVelocity(velocity->x , velocity->y);
+
+	CircleClass::Initialize(position , &TempVelocity , &ACCELARATION() , TempVector[0]);
 
 	m_Speed = TempVector[2];
 
@@ -131,7 +133,7 @@ void NormalSowBugClass::CheckHitMap(MapManagerClass *map_manager)
 	}
 }
 
-bool NormalSowBugClass::Initialize(POSITION* position , VELOCITY* velocity)
+bool NormalSowBugClass::Initialize(POSITION* position , THREE_DIMENSION_VECTOR* velocity)
 {
 	LoadSowBugData(position , velocity);
 	return true;
@@ -175,7 +177,7 @@ double SowBugContextClass::GetRadius()
 	return m_SowBug->GetRadius();
 }
 
-bool SowBugContextClass::Initialize(int sow_bug_type , POSITION* position , VELOCITY* velocity)
+bool SowBugContextClass::Initialize(int sow_bug_type , POSITION* position , THREE_DIMENSION_VECTOR* velocity)
 {
 	switch (sow_bug_type)
 	{

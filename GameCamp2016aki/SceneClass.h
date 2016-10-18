@@ -33,6 +33,20 @@ public:
 	void Render();	//シーンの描画
 };
 
+class SceneHelpClass :
+	public BaseSceneClass
+{
+public:
+	//コンストラクタ
+	SceneHelpClass();
+	//デストラクタ
+	~SceneHelpClass();
+
+	bool Initialize();
+	bool Update();
+	void Render();
+};
+
 class SceneMainClass :
 	public BaseSceneClass
 {

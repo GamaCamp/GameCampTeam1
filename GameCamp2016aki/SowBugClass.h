@@ -10,7 +10,7 @@ protected:
 	bool m_ThrowedFlag;
 	double m_Speed;
 
-	virtual bool LoadSowBugData(POSITION* position , VELOCITY* velocity) = 0;
+	virtual bool LoadSowBugData(POSITION* position , THREE_DIMENSION_VECTOR* velocity) = 0;
 
 public:
 	SowBugStatePatternClass();
@@ -18,7 +18,7 @@ public:
 
 	virtual void CheckHitMap(MapManagerClass *map_manager) = 0;
 
-	virtual bool Initialize(POSITION* position , VELOCITY* velocity) = 0;
+	virtual bool Initialize(POSITION* position , THREE_DIMENSION_VECTOR* velocity) = 0;
 	virtual bool Update() = 0;
 	virtual void Render() = 0;
 };
@@ -27,7 +27,7 @@ class NormalSowBugClass :
 	public SowBugStatePatternClass
 {
 private:
-	bool LoadSowBugData(POSITION* position , VELOCITY* velocity);
+	bool LoadSowBugData(POSITION* position , THREE_DIMENSION_VECTOR* velocity);
 
 public:
 	NormalSowBugClass();
@@ -35,7 +35,7 @@ public:
 
 	void CheckHitMap(MapManagerClass *map_manager);
 
-	bool Initialize(POSITION* position , VELOCITY* velocity);
+	bool Initialize(POSITION* position , THREE_DIMENSION_VECTOR* velocity);
 	bool Update();
 	void Render();
 };
@@ -52,6 +52,6 @@ public:
 	POSITION GetPosition();
 	double GetRadius();
 
-	bool Initialize(int sow_bug_type , POSITION* position , VELOCITY* velocity);
+	bool Initialize(int sow_bug_type , POSITION* position , THREE_DIMENSION_VECTOR* velocity);
 	bool Update(MapManagerClass* map_manager);
 };
