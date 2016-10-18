@@ -1,9 +1,10 @@
 #pragma once
 #include "boxclass.h"
 #include "CircleClass.h"
+#include "MapManagerClass.h"
 
 class SowBugStatePatternClass :
-	public BoxClass
+	public CircleClass
 {
 protected:
 	bool m_ThrowedFlag;
@@ -14,6 +15,8 @@ protected:
 public:
 	SowBugStatePatternClass();
 	virtual ~SowBugStatePatternClass();
+
+	virtual void CheckHitMap(MapManagerClass *map_manager) = 0;
 
 	virtual bool Initialize(POSITION* position , VELOCITY* velocity) = 0;
 	virtual bool Update() = 0;
@@ -30,6 +33,8 @@ public:
 	NormalSowBugClass();
 	~NormalSowBugClass();
 
+	void CheckHitMap(MapManagerClass *map_manager);
+
 	bool Initialize(POSITION* position , VELOCITY* velocity);
 	bool Update();
 	void Render();
@@ -45,7 +50,8 @@ public:
 	~SowBugContextClass(void);
 
 	POSITION GetPosition();
+	double GetRadius();
 
 	bool Initialize(int sow_bug_type , POSITION* position , VELOCITY* velocity);
-	bool Update();
+	bool Update(MapManagerClass* map_manager);
 };

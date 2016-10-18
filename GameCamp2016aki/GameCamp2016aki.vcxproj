@@ -91,9 +91,13 @@
     <ClCompile Include="CircleClass.cpp" />
     <ClCompile Include="GraphicClass.cpp" />
     <ClCompile Include="GroundClass.cpp" />
+    <ClCompile Include="InputClass.cpp" />
     <ClCompile Include="JashikiDebugRoom.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapManagerClass.cpp" />
     <ClCompile Include="PhysicsClass.cpp" />
+    <ClCompile Include="PlayerClass.cpp" />
+    <ClCompile Include="PlayerManagerClass.cpp" />
     <ClCompile Include="SceneClass.cpp" />
     <ClCompile Include="SceneManagerClass.cpp" />
     <ClCompile Include="SowBugClass.cpp" />
@@ -111,9 +115,13 @@
     <ClInclude Include="DebugSwitch.h" />
     <ClInclude Include="GraphicClass.h" />
     <ClInclude Include="GroundClass.h" />
+    <ClInclude Include="InputClass.h" />
     <ClInclude Include="JashikiDebugRoom.h" />
     <ClInclude Include="ListClass.h" />
+    <ClInclude Include="MapManagerClass.h" />
     <ClInclude Include="PhysicsClass.h" />
+    <ClInclude Include="PlayerClass.h" />
+    <ClInclude Include="PlayerManagerClass.h" />
     <ClInclude Include="SceneClass.h" />
     <ClInclude Include="SceneManagerClass.h" />
     <ClInclude Include="SingletonClass.h" />

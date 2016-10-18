@@ -101,7 +101,7 @@ bool CheckHitBoxandBox(BoxClass *box1 , BoxClass *box2)
 
 	//お互いが当たる可能性があるかを判定する
 	if(abs(Box1Position.m_Vector.x - Box2Position.m_Vector.x) < box1->GetSemiLongAxis() + box2->GetSemiLongAxis() &&
-		abs(Box1Position.m_Vector.y - Box2Position.m_Vector.y) < box1->GetSemiShortAxis() + box2->GetSemiLongAxis())
+		abs(Box1Position.m_Vector.y - Box2Position.m_Vector.y) < box1->GetSemiLongAxis() + box2->GetSemiLongAxis())
 	{
 		POSITION LocalVertex_of_Box1Looking_from_Box2;	//box2から見たbox1の頂点
 		POSITION LocalVertex_of_Box2Looking_from_Box1;	//box1から見たbox2の頂点
@@ -113,7 +113,7 @@ bool CheckHitBoxandBox(BoxClass *box1 , BoxClass *box2)
 		//どの頂点が一番近いかを考える
 		for(int i = 0 ; i < 4 ; i++)
 		{
-			if(length < GetDistance(&Box1Vertex.m_VertexPosition[i], &Box2Position))
+			if(length > GetDistance(&Box1Vertex.m_VertexPosition[i], &Box2Position))
 			{
 				//一番近い頂点のローカル座標を出す
 				LocalVertex_of_Box1Looking_from_Box2.m_Vector = Box1Vertex.m_VertexPosition[i].m_Vector - Box2Position.m_Vector;
@@ -129,8 +129,8 @@ bool CheckHitBoxandBox(BoxClass *box1 , BoxClass *box2)
 			//box2から見たbox1の頂点のx成分がbox2の半長軸長より小さい
 			//かつ
 			//box2から見たbox1の頂点のy成分がbox2の半短軸長より小さいとき
-			if(abs(LocalVertex_of_Box1Looking_from_Box2.m_Vector.x) < box2->GetSemiLongAxis() &&
-				abs(LocalVertex_of_Box1Looking_from_Box2.m_Vector.y) < box2->GetSemiShortAxis())
+			if(abs(LocalVertex_of_Box1Looking_from_Box2.m_Vector.x) < abs(box2->GetSemiLongVector().x) + abs(box2->GetSemiShortVector().x) &&
+				abs(LocalVertex_of_Box1Looking_from_Box2.m_Vector.y) < abs(box2->GetSemiLongVector().y) + abs(box2->GetSemiShortVector().y))
 			{
 				//trueを返す
 				return true;
@@ -142,8 +142,8 @@ bool CheckHitBoxandBox(BoxClass *box1 , BoxClass *box2)
 			//box2から見たbox1の頂点のx成分がbox2の半短軸長より小さい
 			//かつ
 			//box2から見たbox1の頂点のy成分がbox2の半長軸長より小さいとき
-			if(abs(LocalVertex_of_Box1Looking_from_Box2.m_Vector.x) < box2->GetSemiShortAxis() &&
-				abs(LocalVertex_of_Box1Looking_from_Box2.m_Vector.y) < box2->GetSemiLongAxis())
+			if(abs(LocalVertex_of_Box1Looking_from_Box2.m_Vector.x) < abs(box2->GetSemiLongVector().x) + abs(box2->GetSemiShortVector().x) &&
+				abs(LocalVertex_of_Box1Looking_from_Box2.m_Vector.y) < abs(box2->GetSemiLongVector().y) + abs(box2->GetSemiShortVector().y))
 			{
 				//trueを返す
 				return true;
@@ -154,9 +154,9 @@ bool CheckHitBoxandBox(BoxClass *box1 , BoxClass *box2)
 		 length = GetDistance(&Box2Position , &Box1Position);	//box1とbox2の距離
 
 		//どの頂点が一番近いかを考える
-		for(int i = 1 ; i <= 4 ; i++)
+		for(int i = 0 ; i < 4 ; i++)
 		{
-			if(length < GetDistance(&Box2Vertex.m_VertexPosition[i], &Box1Position))
+			if(length > GetDistance(&Box2Vertex.m_VertexPosition[i], &Box1Position))
 			{
 				//一番近い頂点のローカル座標を出す
 				LocalVertex_of_Box2Looking_from_Box1.m_Vector = Box2Vertex.m_VertexPosition[i].m_Vector - Box1Position.m_Vector;
@@ -172,14 +172,9 @@ bool CheckHitBoxandBox(BoxClass *box1 , BoxClass *box2)
 			//box1から見たbox2の頂点のx成分がbox1の半長軸長より小さい
 			//かつ
 			//box1から見たbox2の頂点のy成分がbox1の半短軸長より小さいとき
-			if(abs(LocalVertex_of_Box2Looking_from_Box1.m_Vector.x) < box1->GetSemiLongAxis() &&
-				abs(LocalVertex_of_Box2Looking_from_Box1.m_Vector.y) < box1->GetSemiShortAxis())
+			if(abs(LocalVertex_of_Box2Looking_from_Box1.m_Vector.x) < abs(box1->GetSemiLongVector().x) + abs(box1->GetSemiShortVector().x) &&
+				abs(LocalVertex_of_Box2Looking_from_Box1.m_Vector.y) < abs(box1->GetSemiLongVector().y) + abs(box1->GetSemiShortVector().y))
 			{
-				////swapしてメモリを開放する
-				//std::vector<POSITION> NullVector1;
-				//Box1Vertex.m_VertexPosition.swap(NullVector1);
-				//std::vector<POSITION> NullVector2;
-				//Box2Vertex.m_VertexPosition.swap(NullVector2);
 				//trueを返す
 				return true;
 			}
@@ -190,8 +185,8 @@ bool CheckHitBoxandBox(BoxClass *box1 , BoxClass *box2)
 			//box1から見たbox2の頂点のx成分がbox1の半短軸長より小さい
 			//かつ
 			//box1から見たbox2の頂点のy成分がbox1の半長軸長より小さいとき
-			if(abs(LocalVertex_of_Box2Looking_from_Box1.m_Vector.x) < box1->GetSemiShortAxis() &&
-				abs(LocalVertex_of_Box2Looking_from_Box1.m_Vector.y) < box1->GetSemiLongAxis())
+			if(abs(LocalVertex_of_Box2Looking_from_Box1.m_Vector.x) < abs(box1->GetSemiLongVector().x) + abs(box1->GetSemiShortVector().x) &&
+				abs(LocalVertex_of_Box2Looking_from_Box1.m_Vector.y) < abs(box1->GetSemiLongVector().y) + abs(box1->GetSemiShortVector().y))
 			{
 				//trueを返す
 				return true;

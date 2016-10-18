@@ -119,12 +119,12 @@ void BoxClass::SetVertex()
 {
 	m_Vertex.m_VertexPosition[0].m_Vector.Set(m_Position.m_Vector.x + m_SemiLongVector.x + m_SemiShortVector.x , 
 		m_Position.m_Vector.y + m_SemiLongVector.y + m_SemiShortVector.y , 0);
-	m_Vertex.m_VertexPosition[1].m_Vector.Set(m_Position.m_Vector.x + m_SemiLongVector.x - m_SemiShortVector.x ,
-		m_Position.m_Vector.y + m_SemiLongVector.y - m_SemiShortVector.y , 0);
-	m_Vertex.m_VertexPosition[2].m_Vector.Set(m_Position.m_Vector.x - m_SemiLongVector.x + m_SemiShortVector.x ,
+	m_Vertex.m_VertexPosition[1].m_Vector.Set(m_Position.m_Vector.x - m_SemiLongVector.x + m_SemiShortVector.x ,
 		m_Position.m_Vector.y - m_SemiLongVector.y + m_SemiShortVector.y , 0);
-	m_Vertex.m_VertexPosition[3].m_Vector.Set(m_Position.m_Vector.x - m_SemiLongVector.x - m_SemiShortVector.x ,
+	m_Vertex.m_VertexPosition[2].m_Vector.Set(m_Position.m_Vector.x - m_SemiLongVector.x - m_SemiShortVector.x ,
 		m_Position.m_Vector.y - m_SemiLongVector.y - m_SemiShortVector.y , 0);
+	m_Vertex.m_VertexPosition[3].m_Vector.Set(m_Position.m_Vector.x + m_SemiLongVector.x - m_SemiShortVector.x ,
+		m_Position.m_Vector.y + m_SemiLongVector.y - m_SemiShortVector.y , 0);
 }
 
 //////////////////////////////////////////////////////////////////////////////

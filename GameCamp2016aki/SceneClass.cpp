@@ -77,6 +77,8 @@ void SceneTitleClass::Render()
 SceneMainClass::SceneMainClass ()
 {
 	m_SowBugManager = SingletonClass<SowBugManagerClass>::GetInstance();
+	m_MapManager = SingletonClass<MapManagerClass>::GetInstance();
+	m_PlayerManager = SingletonClass<PlayerManagerClass>::GetInstance();
 }
 
 //デストラクタ
@@ -91,6 +93,8 @@ SceneMainClass::~SceneMainClass ()
 bool SceneMainClass::Initialize()
 {
 	m_SowBugManager->Initialize();
+	m_MapManager->Initialize(MapManagerClass::E_STAGE1);
+	m_PlayerManager->Initialize();
 	return true;
 }
 
@@ -100,7 +104,9 @@ bool SceneMainClass::Initialize()
 //////////////////////////////////////////////////////////////////////////////
 bool SceneMainClass::Update()
 {
-	m_SowBugManager->Update();
+	m_PlayerManager->Update();
+	m_SowBugManager->Update(m_MapManager);
+	m_MapManager->Update();
 	return true;
 }
 
@@ -110,5 +116,7 @@ bool SceneMainClass::Update()
 //////////////////////////////////////////////////////////////////////////////
 void SceneMainClass::Render()
 {
+	m_PlayerManager->Render();
 	m_SowBugManager->Render();
+	m_MapManager->Render();
 }

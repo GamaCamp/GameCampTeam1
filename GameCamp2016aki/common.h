@@ -12,6 +12,8 @@
 
 const int WINDOW_HEIGHT = 720;															//ウィンドウサイズ縦
 const int WINDOW_WIDTH = 960;																//ウィンドウサイズ横
+const int MaxGravity = 32;
+
 
 //列挙体の宣言
 enum GAME_MODE

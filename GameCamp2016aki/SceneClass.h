@@ -1,6 +1,8 @@
 #pragma once
 #include "common.h"
 #include "SowBugManagerClass.h"
+#include "MapManagerClass.h"
+#include "PlayerManagerClass.h"
 
 class BaseSceneClass
 {
@@ -36,6 +38,8 @@ class SceneMainClass :
 {
 private:
 	SowBugManagerClass *m_SowBugManager;
+	MapManagerClass *m_MapManager;
+	PlayerManagerClass *m_PlayerManager;
 
 public:
 	//コンストラクタ

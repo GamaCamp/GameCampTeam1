@@ -30,18 +30,17 @@ bool SowBugManagerClass::CreateSowBug(SowBugManagerClass::SOW_BUG_TYPE sow_bug_t
 
 bool SowBugManagerClass::Initialize()
 {
-	CreateSowBug(SowBugManagerClass::E_NORMAL , &POSITION(WINDOW_WIDTH / 2 , WINDOW_HEIGHT / 2) , &VELOCITY());
 	return true;
 }
 
-bool SowBugManagerClass::Update()
+bool SowBugManagerClass::Update(MapManagerClass* map_manager)
 {
 #ifdef DEBUG
 	if(m_SowBugList.ToBegin())
 	{
 		do
 		{
-			m_SowBugList.GetCurrentNode().Update();
+			m_SowBugList.GetCurrentNode().Update(map_manager);
 		} while (m_SowBugList.Next());
 	}
 #endif // DEBUG
@@ -56,7 +55,8 @@ void SowBugManagerClass::Render()
 	{
 		do
 		{
-			DrawCircle(m_SowBugList.GetCurrentNode().GetPosition().m_Vector.x , m_SowBugList.GetCurrentNode().GetPosition().m_Vector.y , 64 , 0xffffff , false);
+			DrawCircle(m_SowBugList.GetCurrentNode().GetPosition().m_Vector.x , m_SowBugList.GetCurrentNode().GetPosition().m_Vector.y , m_SowBugList.GetCurrentNode().GetRadius() , 0xffffff , false);
+
 		} while (m_SowBugList.Next());
 	}
 #endif // DEBUG

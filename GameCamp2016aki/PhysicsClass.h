@@ -52,6 +52,7 @@ protected:
 	virtual void ObjectBound() = 0;
 
 public:
+
 	//コンストラクタ
 	PhysicsClass(void);
 	//デストラクタ

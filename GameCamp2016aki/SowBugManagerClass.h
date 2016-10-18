@@ -28,7 +28,7 @@ public:
 	bool CreateSowBug(SowBugManagerClass::SOW_BUG_TYPE sow_bug_type , POSITION* position , VELOCITY* velocity);
 
 	bool Initialize();
-	bool Update();
+	bool Update(MapManagerClass* map_manager);
 	void Render();
 };
 

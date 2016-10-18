@@ -36,6 +36,10 @@ bool SowBugStatePatternClass::LoadSowBugData(POSITION* position , VELOCITY* velo
 //publicŠÖ”
 //////////////////////////////////////////////////////////////////////////////
 
+void SowBugStatePatternClass::CheckHitMap(MapManagerClass *map_manager)
+{
+}
+
 //////////////////////////////////////////////////////////////////////////////
 //ŠT—ª:
 //	‰Šú‰»iƒˆ‰¼‘zŠÖ”j
@@ -82,7 +86,7 @@ NormalSowBugClass::~NormalSowBugClass()
 
 bool NormalSowBugClass::LoadSowBugData(POSITION* position , VELOCITY* velocity)
 {
-	std::ifstream ifs("data/normal_sow_bug.csv");
+	std::ifstream ifs("data/sow_bug/normal_sow_bug.csv");
 	if(ifs.fail()) return false;
 
 	std::string SowBugData;
@@ -100,14 +104,7 @@ bool NormalSowBugClass::LoadSowBugData(POSITION* position , VELOCITY* velocity)
 		TempVector.push_back(std::stod(token));
 	}
 
-	if(TempVector[0] >= TempVector[1])
-	{
-		BoxClass::Initialize(position , velocity , &ACCELARATION() , &THREE_DIMENSION_VECTOR(TempVector[0]) , &THREE_DIMENSION_VECTOR(0 , TempVector[1]));
-	}
-	else
-	{
-		BoxClass::Initialize(position , velocity , &ACCELARATION() , &THREE_DIMENSION_VECTOR(0 ,TempVector[1]) , &THREE_DIMENSION_VECTOR(TempVector[0]));
-	}
+	CircleClass::Initialize(position , velocity , &ACCELARATION() , TempVector[0]);
 
 	m_Speed = TempVector[2];
 
@@ -119,6 +116,20 @@ bool NormalSowBugClass::LoadSowBugData(POSITION* position , VELOCITY* velocity)
 //////////////////////////////////////////////////////////////////////////////
 //publicŠÖ”
 //////////////////////////////////////////////////////////////////////////////
+
+void NormalSowBugClass::CheckHitMap(MapManagerClass *map_manager)
+{
+	CircleClass EstimateCircle;
+	EstimateCircle.Initialize(&EstimatePosition(m_GroundedFlag) , &m_Velocity , &m_Accelaration , m_Radius);
+	
+	if(CheckHitCircleandBox(&EstimateCircle , &map_manager->GetGround()))
+	{
+		if(m_Position.m_Vector.y + m_Radius <  map_manager->GetGround().GetVertex(0).m_Vector.y)
+		{
+			m_Position.m_Vector.y = map_manager->GetGround().GetPosition().m_Vector.y - map_manager->GetGround().GetSemiShortAxis() - m_Radius;
+		}
+	}
+}
 
 bool NormalSowBugClass::Initialize(POSITION* position , VELOCITY* velocity)
 {
@@ -159,6 +170,11 @@ POSITION SowBugContextClass::GetPosition()
 	return m_SowBug->GetPosition();
 }
 
+double SowBugContextClass::GetRadius()
+{
+	return m_SowBug->GetRadius();
+}
+
 bool SowBugContextClass::Initialize(int sow_bug_type , POSITION* position , VELOCITY* velocity)
 {
 	switch (sow_bug_type)
@@ -172,8 +188,9 @@ bool SowBugContextClass::Initialize(int sow_bug_type , POSITION* position , VELO
 	return true;
 }
 
-bool SowBugContextClass::Update()
+bool SowBugContextClass::Update(MapManagerClass *map_manager)
 {
 	m_SowBug->Update();
+	m_SowBug->CheckHitMap(map_manager);
 	return true;
 }
